@@ -8,6 +8,10 @@ const answerButtonsElement = document.getElementById('answer-buttons')
 let shuffledQuestions, currentQuestionIndex
 
 startButton.addEventListener('click', startGame)
+nextButton.addEventListener('click'), () => {
+  currentQuestionIndex++
+  setNextQuestion()
+}
 
 function startGame() {
   console.log('Started')
@@ -54,7 +58,28 @@ function selectAnswer(e) {
     setStatusClass(button, button.dataset.correct)
   })
 
+  if (shuffledQuestions.length > currentQuestionIndex + 1) {
+    nextButton.classList.remove('hide')
+  }
+  nextButton.classList.remove('hide')
 }
+
+
+
+function setStatusClass(element, correct) {
+  clearStatusClass(element)
+  if (correct) {
+    element.classList.add('correct')
+  } else {
+    element.classList.add('wrong')
+  }
+}
+
+function clearStatusClass(element) {
+  element.classList.remove('correct')
+  element.classList.remove('wrong')
+}
+
 
 const questions = [{
   question: 'What is 2 + 2?',
