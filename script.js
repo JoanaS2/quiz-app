@@ -86,14 +86,36 @@ function clearStatusClass(element) {
 
 
 const questions = [{
-  question: 'What is 2 + 2?',
-  answers: [{
-      text: '4',
-      correct: true
-    },
-    {
-      text: '22',
-      correct: false
-    }
-  ]
-}];
+    question: 'What is 2 + 2?',
+    answers: [{
+        text: '4',
+        correct: true
+      },
+      {
+        text: '22',
+        correct: false
+      }
+    ]
+  },
+  {
+    question: 'What is the capital of France?',
+    answers: [{
+        text: 'Paris',
+        correct: true
+      },
+      {
+        text: 'London',
+        correct: false
+      },
+      {
+        text: 'Berlin',
+        correct: false
+      },
+      {
+        text: 'Madrid',
+        correct: false
+      }
+    ]
+  },
+
+];
