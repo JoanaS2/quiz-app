@@ -94,9 +94,18 @@ const questions = [{
       {
         text: '22',
         correct: false
+      },
+      {
+        text: '44',
+        correct: false
+      },
+      {
+        text: "6",
+        correct: false
       }
     ]
   },
+
   {
     question: 'What is the capital of France?',
     answers: [{
