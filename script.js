@@ -86,45 +86,255 @@ function clearStatusClass(element) {
 
 
 const questions = [{
-    question: 'What is 2 + 2?',
+    question: 'What is the largest planet in the solar system?',
     answers: [{
-        text: '4',
+        text: 'Jupiter',
         correct: true
       },
       {
-        text: '22',
+        text: 'Neptune',
         correct: false
       },
       {
-        text: '44',
+        text: 'Saturn',
         correct: false
       },
       {
-        text: "6",
+        text: 'Uranus',
         correct: false
       }
     ]
   },
 
   {
-    question: 'What is the capital of France?',
+    question: 'What is the largest island in the world?',
     answers: [{
-        text: 'Paris',
+        text: 'Greenland',
         correct: true
       },
       {
-        text: 'London',
+        text: 'Madagascar',
         correct: false
       },
       {
-        text: 'Berlin',
+        text: 'Borneo',
         correct: false
       },
       {
-        text: 'Madrid',
+        text: 'New Guinea',
         correct: false
       }
     ]
   },
+
+  {
+    question: 'What was the first soft drink in space?',
+    answers: [{
+        text: 'Coca Cola',
+        correct: true
+      },
+      {
+        text: 'Pepsi',
+        correct: false
+      },
+      {
+        text: 'Sprite',
+        correct: false
+      },
+      {
+        text: 'Dr Pepper',
+        correct: false
+      }
+    ]
+  },
+
+  {
+    question: 'What year was the famous movie Titanic released?',
+    answers: [{
+        text: '1997',
+        correct: true
+      },
+      {
+        text: '1995',
+        correct: false
+      },
+      {
+        text: '1998',
+        correct: false
+      },
+      {
+        text: '2000',
+        correct: false
+      }
+    ]
+  },
+
+  {
+    question: 'How many hearts does an octopus have?',
+    answers: [{
+        text: '3',
+        correct: true
+      },
+      {
+        text: '1',
+        correct: false
+      },
+      {
+        text: '5',
+        correct: false
+      },
+      {
+        text: '7',
+        correct: false
+      }
+    ]
+  },
+
+  {
+    question: 'What is the nearest planet to the sun?',
+    answers: [{
+        text: 'Mercury',
+        correct: true
+      },
+      {
+        text: 'Mars',
+        correct: false
+      },
+      {
+        text: 'Venus',
+        correct: false
+      },
+      {
+        text: 'Jupiter',
+        correct: false
+      }
+    ]
+  },
+
+  {
+    question: 'How many bones does a shark have?',
+    answers: [{
+        text: 'None',
+        correct: true
+      },
+      {
+        text: '50',
+        correct: false
+      },
+      {
+        text: '100',
+        correct: false
+      },
+      {
+        text: '150',
+        correct: false
+      }
+    ]
+  },
+
+  {
+    question: 'What is the largest continent?',
+    answers: [{
+        text: 'Asia',
+        correct: true
+      },
+      {
+        text: 'Europe',
+        correct: false
+      },
+      {
+        text: 'Africa',
+        correct: false
+      },
+      {
+        text: 'North America',
+        correct: false
+      }
+    ]
+  },
+
+  {
+    question: 'In which country did the Olympics originate?',
+    answers: [{
+        text: 'Greece',
+        correct: true
+      },
+      {
+        text: 'Italy',
+        correct: false
+      },
+      {
+        text: 'China',
+        correct: false
+      },
+      {
+        text: 'Egypt',
+        correct: false
+      }
+    ]
+  },
+
+  {
+    question: 'What year did Disneyland inaugurate?',
+    answers: [{
+        text: '1955',
+        correct: true
+      },
+      {
+        text: '1960',
+        correct: false
+      },
+      {
+        text: '1970',
+        correct: false
+      },
+      {
+        text: '1980',
+        correct: false
+      }
+    ]
+  },
+
+  {
+    question: 'Where was the mojito cocktail created?',
+    answers: [{
+        text: 'Cuba',
+        correct: true
+      },
+      {
+        text: 'Spain',
+        correct: false
+      },
+      {
+        text: 'Mexico',
+        correct: false
+      },
+      {
+        text: 'Peru',
+        correct: false
+      }
+    ]
+  },
+
+  {
+    question: 'What is the tallest building in the world?',
+    answers: [{
+        text: 'Burj Khalifa',
+        correct: true
+      },
+      {
+        text: 'Empire State Building',
+        correct: false
+      },
+      {
+        text: ' Shanghai Tower',
+        correct: false
+      },
+      {
+        text: 'Taipei 101',
+        correct: false
+      }
+    ]
+  }
 
 ];
