@@ -79,11 +79,16 @@ body.wrong {
   --hue: var(--hue-wrong);
 }
 
-.start-btn,
+/* .start-btn, */
 .next-btn {
   font-size: 1.5rem;
   font-weight: bold;
   padding: 10px 20px;
+}
+
+.start-btn {
+  display: block;
+  color: red;
 }
 
 .controls {

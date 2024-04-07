@@ -1,36 +1,48 @@
 const startButton = document.getElementById('start-btn');
 const nextButton = document.getElementById('next-btn');
 const questionContainerElement = document.getElementById('question-container');
-
 const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-buttons');
-
 let shuffledQuestions, currentQuestionIndex;
+
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOMContentLoaded event fired');
+  startButton.classList.remove('hide');
+
+});
+
 
 startButton.addEventListener('click', startGame);
 nextButton.addEventListener('click', () => {
+  console.log('Next button clicked');
   currentQuestionIndex++;
   setNextQuestion();
 });
 
 
 function startGame() {
-  console.log('Started');
+  console.log('startGame function called');
+  resetGameState();
   startButton.classList.add('hide');
   shuffledQuestions = questions.sort(() => Math.random() - .5);
-  currentQuestionIndex = 0;
+  // currentQuestionIndex = 0;
   questionContainerElement.classList.remove('hide');
   setNextQuestion();
 
 }
 
 function setNextQuestion() {
-  resetState();
+  console.log('setNextQuestion function called');
+  resetGameState();
+  clearStatusClass(document.body);
   showQuestion(shuffledQuestions[currentQuestionIndex]);
 
 }
 
+
+
 function showQuestion(question) {
+  console.log('showQuestion function called');
   questionElement.innerText = question.question;
   question.answers.forEach(answer => {
     const button = document.createElement('button');
@@ -45,16 +57,21 @@ function showQuestion(question) {
 }
 
 
-
-
-function resetState() {
+function resetGameState() {
+  console.log('resetGameState function called');
+  currentQuestionIndex = 0;
   nextButton.classList.add('hide');
   while (answerButtonsElement.firstChild) {
     answerButtonsElement.removeChild(answerButtonsElement.firstChild);
   }
+  clearStatusClass(document.body); // Clear status classes applied to the body
+  Array.from(answerButtonsElement.children).forEach(button => {
+    clearStatusClass(button); // Clear status classes applied to answer buttons
+  });
 }
 
 function selectAnswer(e) {
+  console.log('selectAnswer function called');
   const selectedButton = e.target;
   const correct = selectedButton.dataset.correct;
   setStatusClass(document.body, correct);
@@ -71,6 +88,7 @@ function selectAnswer(e) {
 }
 
 function setStatusClass(element, correct) {
+  console.log('setStatusClass function called');
   clearStatusClass(element);
   if (correct) {
     element.classList.add('correct');
@@ -80,6 +98,7 @@ function setStatusClass(element, correct) {
 }
 
 function clearStatusClass(element) {
+  console.log('clearStatusClass function called');
   element.classList.remove('correct');
   element.classList.remove('wrong');
 }
