@@ -4,11 +4,18 @@ const questionContainerElement = document.getElementById('question-container');
 const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-buttons');
 let shuffledQuestions, currentQuestionIndex;
+const timerElement = document.getElementById('time-left');
+let timeLeft = 10;
+let timerInterval;
+
+// // Function to create a random block
+// const createRandomBlock = function () {
+//   return Math.floor(Math.random() * shuffledQuestions.length);
+// };
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('DOMContentLoaded event fired');
   startButton.classList.remove('hide');
-
 });
 
 
@@ -16,30 +23,44 @@ startButton.addEventListener('click', startGame);
 nextButton.addEventListener('click', () => {
   console.log('Next button clicked');
   currentQuestionIndex++;
-  setNextQuestion();
+  if (currentQuestionIndex < shuffledQuestions.length) {
+    setNextQuestion();
+  } else {
+    console.log('End of quiz');
+    nextButton.classList.add('hide');
+  }
 });
 
 
 function startGame() {
   console.log('startGame function called');
   resetGameState();
+  resetTimer(); // Reset timer when starting a new game
+  startTimer(); // Timer starts
   startButton.classList.add('hide');
-  shuffledQuestions = questions.sort(() => Math.random() - .5);
-  // currentQuestionIndex = 0;
+  nextButton.classList.add('hide');
+  shuffledQuestions = questions.sort(() => Math.random() - 0.5);
+  currentQuestionIndex = 0;
   questionContainerElement.classList.remove('hide');
   setNextQuestion();
-
 }
+
 
 function setNextQuestion() {
   console.log('setNextQuestion function called');
-  resetGameState();
+  clearAnswerButtons();
   clearStatusClass(document.body);
   showQuestion(shuffledQuestions[currentQuestionIndex]);
-
+  nextButton.classList.add('hide');
+  resetTimer(); // Reset the timer for each new question
+  startTimer(); // Start the timer for the new question
 }
 
-
+function clearAnswerButtons() {
+  while (answerButtonsElement.firstChild) {
+    answerButtonsElement.removeChild(answerButtonsElement.firstChild);
+  }
+}
 
 function showQuestion(question) {
   console.log('showQuestion function called');
@@ -56,7 +77,6 @@ function showQuestion(question) {
   });
 }
 
-
 function resetGameState() {
   console.log('resetGameState function called');
   currentQuestionIndex = 0;
@@ -70,6 +90,8 @@ function resetGameState() {
   });
 }
 
+
+
 function selectAnswer(e) {
   console.log('selectAnswer function called');
   const selectedButton = e.target;
@@ -79,11 +101,18 @@ function selectAnswer(e) {
     setStatusClass(button, button.dataset.correct);
   });
 
-  if (shuffledQuestions.length > currentQuestionIndex + 1) {
+  // console.log('Current Question Index:', currentQuestionIndex);
+  // console.log('Shuffled Questions Length:', shuffledQuestions.length);
+
+  nextButton.classList.remove('hide');
+
+  if (currentQuestionIndex + 1 < shuffledQuestions.length) {
     nextButton.classList.remove('hide');
+    startButton.classList.add('hide');
   } else {
+    nextButton.classList.add('hide');
     startButton.innerText = 'Restart';
-    startButton.classList.remove('hide')
+    startButton.classList.remove('hide');
   }
 }
 
@@ -101,6 +130,24 @@ function clearStatusClass(element) {
   console.log('clearStatusClass function called');
   element.classList.remove('correct');
   element.classList.remove('wrong');
+}
+
+function startTimer() {
+  timerInterval = setInterval(() => {
+    if (timeLeft > 0) {
+      timeLeft--;
+      timerElement.textContent = timeLeft;
+    } else {
+      clearInterval(timerInterval);
+      // Define the endGame() function or handle the end of the game here
+    }
+  }, 1000); // Update timer every second
+}
+
+function resetTimer() {
+  clearInterval(timerInterval);
+  timeLeft = 10; // Reset time to initial value
+  timerElement.textContent = timeLeft;
 }
 
 
